@@ -1,0 +1,75 @@
+create database digitalers_basedatos;
+use digitalers_basedatos;
+
+create table sucursales(
+id_nombre char(30),
+ciudad_sucursal char(30),
+jefe_sucursal char(30),
+primary key (id_nombre)
+
+);
+
+create table clientes(
+id_cliente int,
+direccion_cliente varchar(30),
+nombre_cliente varchar (30),
+apellido_cliente varchar(30),
+ciudad_cliente varchar(30),
+cuenta_corriente char(2),
+caja_ahorro char(2),
+solicitud_prestamos char(2),
+id_cuentaunica int,
+primary key (id_cliente)
+);
+
+
+create table administracion_banco1(
+id_empleado int,
+nombre_empleados varchar(30),
+telefono_empleados int,
+fecha_incorporacion date,
+id_cliente int,
+primary key(id_empleado)
+);
+
+create table administracion_banco2(
+id_supervisor int,
+nombre_supervisor varchar(30),
+id_empleados varchar(30),
+primary key (id_supervisor)
+);
+use digitalers_basedatos;
+-- sucursales
+insert into sucursales values ('sucursal rosario','rosario','Alberto Perez')
+insert into sucursales values ('sucursal cordoba','cordoba','Romina Alvares')
+insert into sucursales values ('sucursal Bs As','buenos aires','Sofia Gaitini')
+
+select*from sucursales
+
+ -- clientes 
+insert into clientes values (0022445,'santiago 5002b','Adriana','Martino','rosario','si','no','si',0001)
+insert into clientes values (0022446,'peru 482 bis','lisandro','suarez','rosario','si','si','no',0002)
+insert into clientes values(002247,'bolta 1545','romina','tosello','cordoba','si','si','si',0003)
+insert into clientes values (002248,'dr rivas 3648','cesar','solis','rosario','si','no','no',0004)
+insert into clientes values (002249,'caferatta 5024','ricardo','leguizamon','cordoba','si','no','si',0005)
+insert into clientes values (002210,'savio 7785','aldana','sanchez','bs as','si','no','no',0006)
+insert into clientes values (002211,'esquiu 2654','rocio','machado','bs as','si','no','no',0007)
+
+
+insert into administracion_banco1 values(0010,'lorenzo',4584521,'2015-05-03',002245)
+insert into administracion_banco1 values(0020,'analia',4887569,'2020-04-09',002246)
+insert into administracion_banco1 values(0030,'rosalia',4521136,'2019-08-01',002247)
+
+insert into administracion_banco1 values(0040,'armando',4756582,'2011-01-10',002248)
+insert into administracion_banco1 values (0050,'juana',4441258,'2018-08-11',002249)
+insert into administracion_banco1 values (0045,'alberto',4259631,'2020-07-04',002210)
+insert into administracion_banco1 values(0055,'gustavo',4859632,'2018-10-07',002211)
+
+
+insert into administracion_banco2 values (1233,'rodolfo',002245)
+insert into administracion_banco2 values (1234,'agustina',002246)
+insert into administracion_banco2 values(1235,'analia',002247)
+insert into administracion_banco2 values (1236,'mariana',002248)
+insert into administracion_banco2 values (1237,'victor',002249)
+insert into administracion_banco2 values (1238,'amanda',002210)
+insert into administracion_banco2 values (1239,'diego',002211)
